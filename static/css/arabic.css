@@ -1,0 +1,94 @@
+
+
+
+
+:lang(ar){
+  font-family: 'Almarai', sans-serif;
+}
+
+@media (max-width: 991px){
+  :lang(ar) #navbar {
+    direction: ltr !important;
+  }
+  :lang(ar) .navbar-collapse{
+    text-align: right !important;
+  }
+
+}
+
+
+
+
+/* :lang(ar) .navbar-brand {
+    margin-left: 1rem;
+    margin-right: auto;
+    } */
+
+.mr-3,.mx-3 :lang(ar){
+  margin-left: 1rem !important;
+  margin-right: auto !important;
+}
+.text-right :lang(ar) {
+    text-align: left !important;
+}
+/* .text-left:lang(ar) {
+    text-align: right !important;
+} */
+
+
+/* :lang(ar) #mc_embed_signup .button  {
+  border-radius: 26px 0 0 26px;!important;
+  left: 33px;
+  right: auto !important;
+} */
+
+:lang(ar) .ml-auto, .mx-auto {
+      margin-right: auto !important;
+      margin-left: 0 !important;
+}
+
+:lang(ar) .float.ar {
+    left: 40px;
+    right:auto !important;
+  }
+
+  :lang(ar) #floating{
+    left: 40px;
+    right: auto;
+  }
+  /* ------------Font arabic awsom ---------- */
+  :lang(ar) h4.my-float.ar {
+      margin-top: 28px;
+  }
+
+  :lang(ar) footer-section {
+      text-align: right;
+
+  }
+
+:lang(ar) .single-cta i {
+    float: right;
+    left: auto;
+    padding-right: 35px;
+}
+
+:lang(ar) .footer-widget-heading h3::before {
+  left: auto !important;
+}
+
+:lang(ar) .cta-text {
+    padding-right: 15px;
+    padding-left: 0;
+}
+
+:lang(ar) .text-dark {
+    text-align: right;
+}
+
+:lang(ar) span.float-right {
+    float: left !important;
+  }
+
+:lang(ar) .modal-dialog .form-group label{
+  float: right;
+}

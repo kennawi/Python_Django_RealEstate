@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load humanize %}
+
+{% block title %} | {{ listing.title }} {% endblock %}
+
+{% block content %}
+
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">{{ listing.title }}</h1>
+          <p class="lead">
+            <i class="fas fa-map-marker"></i> {{ listing.city }} </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}"> {% trans 'Home' %} </a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'listings' %}">{% trans 'Listings' %}</a>
+          </li>
+          <li class="breadcrumb-item active">{{ listing.title }}</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Alerts -->
+  {% include 'partials/_alerts.html' %}
+
+  <!-- Listing -->
+  <section id="listing" class="py-4">
+    <div class="container">
+      <a href="{% url 'listings' %}" class="btn btn-light mb-4">{% trans 'Back To Listings' %}</a>
+      <div class="row">
+        <div class="col-md-12" >
+          <!-- Home Main Image -->
+          <img src="{{ listing.photo_main.url }}" alt="" class="img-main img-fluid mb-3 " >
+        </div>
+          <!-- Thumbnails -->
+          <div class="col-md-12">
+          <div class="row text-center text-lg-left">
+            {% if listing.photo_1 %}
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="{{ listing.photo_1.url }}" class="d-block mb-4 h-100" data-fancybox="preview" data-width="1500" data-height="1000">
+                <img src="{{ listing.photo_1.url }}" alt="" class="img-fluid img-thumbnail">
+              </a>
+            </div>
+            {% endif %}
+            {% if listing.photo_2 %}
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="{{ listing.photo_2.url }}" class="d-block mb-4 h-100" data-fancybox="preview" data-width="1500" data-height="1000">
+                <img src="{{ listing.photo_2.url }}" alt="" class="img-fluid img-thumbnail">
+              </a>
+            </div>
+            {% endif %}
+            {% if listing.photo_3 %}
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="{{ listing.photo_3.url }}" class="d-block mb-4 h-100" data-fancybox="preview" data-width="1500" data-height="1000">
+                <img src="{{ listing.photo_3.url }}" alt="" class="img-fluid img-thumbnail">
+              </a>
+            </div>
+            {% endif %}
+            {% if listing.photo_4 %}
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="{{ listing.photo_4.url }}" class="d-block mb-4 h-100" data-fancybox="preview" data-width="1500" data-height="1000">
+                <img src="{{ listing.photo_4.url }}" alt="" class="img-fluid img-thumbnail">
+              </a>
+            </div>
+            {% endif %}
+            {% if listing.photo_5 %}
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="{{ listing.photo_5.url }}" class="d-block mb-4 h-100" data-fancybox="preview" data-width="1500" data-height="1000">
+                <img src="{{ listing.photo_5.url }}" alt="" class="img-fluid img-thumbnail">
+              </a>
+            </div>
+            {% endif %}
+            {% if listing.photo_6 %}
+            <div class="col-lg-3 col-md-4 col-6">
+              <a href="{{ listing.photo_6.url }}" class="d-block mb-4 h-100" data-fancybox="preview" data-width="1500" data-height="1000">
+                <img src="{{ listing.photo_6.url }}" alt="" class="img-fluid img-thumbnail">
+              </a>
+            </div>
+            {% endif %}
+            {% if listing.videofile %}
+            <!-- <div class="col-lg-3 col-md-4 col-6">
+              <video data-fancybox controls  width='100%' height='100%'>
+                <source src="{{ listing.videofile.url }}" type="video/mp4"></source>
+              </video> -->
+              {% endif %}
+              {% if listing.videofile %}
+              <div class="col-lg-3 col-md-4 col-6">
+                <a href="{{ listing.videofile.url }}" class="d-block mb-4 h-100" data-fancybox="preview"  >
+                  <video controls height="170px">
+                    <source  src="{{ listing.videofile.url }}" type="video/mp4"></source>
+                  </video>
+                </a>
+
+              <!-- <a href="{{ listing.videofile.url }}" class="d-block mb-4 h-100" data-fancybox="preview" data-width="1500" data-height="1000">
+                <img src="{{ listing.videofile.url }}" alt="" class="img-fluid img-thumbnail"> -->
+
+
+
+            </div>
+            {% endif %}
+          </div>
+          <!-- Fields -->
+          <div class="row mb-5 fields">
+            <div class="col-md-6 card" id="details-card">
+
+
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-money-bill-alt"></i> {% trans 'Asking Price: ' %}
+                  <span class="float-right">AED {{ listing.price | intcomma }}</span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-bed"></i> {% trans 'Bedrooms: ' %}
+                  <span class="float-right">{{ listing.bedrooms }}</span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-bath"></i>{% trans 'Bathrooms: ' %}
+                  <span class="float-right">{{ listing.bathrooms }}</span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-car"></i> {% trans 'Garage: ' %}
+                  <span class="float-right">{{ listing.garage }}
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6 card" id="details-card">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-th-large"></i> {% trans 'Square Feet: ' %}
+                  <span class="float-right">{{ listing.sqft }}</span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-square"></i> {% trans 'Lot Size: ' %}
+                  <span class="float-right">{{ listing.lot_size }} Acres
+                  </span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-calendar"></i>{% trans 'Listing Date: ' %}
+                  <span class="float-right">{{ listing.list_date }}</span>
+                </li>
+                <li class="list-group-item text-dark">
+                  <i class="fas fa-bed"></i> {% trans 'Developer: '%}
+                  <span class="float-right">{{ listing.realtor }}
+                  </span>
+                </li>
+
+
+              </ul>
+
+            </div>
+
+          </div>
+
+          <button class="btn-primary btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal" style="width:50%; margin:auto;">{% trans 'Make An Inquiry' %}</button>
+          <br>
+          <!-- Description -->
+          <div class="row mb-5">
+            <div class="description col-md-12">
+                {{ listing.description }}
+            </div>
+          </div>
+        </div>
+
+  </section>
+
+  <!-- Inquiry Modal -->
+  <div class="modal fade " id="inquiryModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel"> {% trans 'Make An Inquiry' %} </h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
+            {% if user.is_authenticated %}
+              <input type="hidden" name="user_id" value="{{ user.id }}">
+            {% else %}
+              <input type="hidden" name="user_id" value="0">
+            {% endif %}
+            <input type="hidden" name="realtor_email" value="{{ listing.realtor.email }}">
+            <input type="hidden" name="listing_id" value="{{ listing.id }}">
+            <div class="form-group">
+              <label for="property_name" class="col-form-label"> {% trans 'Property: '%} </label>
+              <input type="text" name="listing" class="form-control" value="{{ listing.title }}">
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-form-label">{% trans 'Name: ' %}</label>
+              <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-form-label">{% trans 'Email: ' %}</label>
+              <input type="email" name="email" class="form-control" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="col-form-label">{% trans 'Phone:' %}</label>
+              <input type="text" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="message" class="col-form-label">{% trans 'Message: ' %}</label>
+              <textarea name="message" class="form-control"></textarea>
+            </div>
+            <hr>
+            <input type="submit" value="Send" class="btn btn-block btn-secondary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- -------------------------------------------------------------------------- -->
+
+{% endblock %}

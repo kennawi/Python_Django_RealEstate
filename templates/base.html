@@ -1,0 +1,191 @@
+{% load i18n %}
+{% get_current_language as lang %}
+{% get_current_language_bidi as lang_dir %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="{{ lang }}"
+      dir="{% if lang_dir %}rtl{% else %}ltr{% endif %}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Font Awesome -->
+<link rel="stylesheet" href="{% static 'css/arabic.css' %}">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="font-awesome-rtl.css"> -->
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="font-awesome-rtl.css"> -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/floatingicons.css' %}">
+  <!-- Custom -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <!-- Lightbox -->
+  <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+  <!-- lightSlider -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.fancybox.min.css' %}">
+  <!-- crousal slider -->
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+
+
+  <!-- Google Fonte -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Almarai&display=swap&subset=arabic" rel="stylesheet">
+
+  <title> Real Estate {% block title %}{% endblock %}</title>
+  <!-- sanp pixel -->
+
+<!-- End Snap Pixel Code -->
+<!-- Snap Pixel Code -->
+<script type='text/javascript'>
+(function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+{a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+r.src=n;var u=t.getElementsByTagName(s)[0];
+u.parentNode.insertBefore(r,u);})(window,document,
+'https://sc-static.net/scevent.min.js');
+
+snaptr('init', '379926f0-d3fa-4330-b150-268f19f313a0', {
+'user_email': '__INSERT_USER_EMAIL__'
+});
+
+snaptr('track', 'PAGE_VIEW');
+
+</script>
+</head>
+
+<body>
+  <style>
+
+.mobileShow {
+  display: none;
+}
+
+    @media (max-width: 991px) {
+a.glow{
+  display: none !important;
+ }
+}
+
+@media (max-width: 500px){
+  #showcase ,#top-bar2{
+  background: url(../static/img/worm-1707823.jpg);
+   background-repeat: no-repeat;
+  background-position: bottom;
+  /* background-attachment: fixed; */
+  background-size: cover;
+
+ }
+ #top-bar2{
+   display:none;
+ }
+ .mobileShow {
+   display: inline;
+ }
+ #navbar {
+   position: sticky;
+ }
+}
+  </style>
+  <!-- Top Bar -->
+
+  <!-- NavBar -->
+
+  {% include 'partials/_navbar.html' %}
+  {% include 'partials/floating-icons.html' %}
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+      <!-- Snap Pixel Code -->
+    <script type='text/javascript'>
+    (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+    {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+    a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+    r.src=n;var u=t.getElementsByTagName(s)[0];
+    u.parentNode.insertBefore(r,u);})(window,document,
+    'https://sc-static.net/scevent.min.js');
+
+    snaptr('init', '379926f0-d3fa-4330-b150-268f19f313a0', {
+    'user_email': '__INSERT_USER_EMAIL__'
+    });
+
+    snaptr('track', 'PAGE_VIEW');
+
+    </script>
+    </head>
+    <body>
+
+    </body>
+  </html>
+    <!-- Main Content -->
+  {% block content %} {% endblock %}
+  <!-- Footer -->
+  {% include 'partials/_footer.html' %}
+
+
+
+
+  <!-- Inquiry Modal -->
+  <div class="modal fade " id="inquiryModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel"> {% trans 'Make An Inquiry' %} </h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'contactform' %}" method="POST">
+            {% csrf_token %}
+
+
+            <div class="form-group">
+              <label for="name" class="col-form-label">{% trans 'Name: ' %}</label>
+              <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-form-label">{% trans 'Email: ' %}</label>
+              <input type="email" name="email" class="form-control" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="col-form-label">{% trans 'Phone:' %}</label>
+              <input type="text" name="phone" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="message" class="col-form-label">{% trans 'Message: ' %}</label>
+              <textarea name="message" class="form-control"></textarea>
+            </div>
+            <hr>
+            <input type="submit" value="Send" class="btn btn-block btn-secondary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <script src="{% static 'js/jquery.min.js' %}"></script> -->
+  <script src="{% static 'js/jquery-3.3.1.min.js' %} "></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
+  <script src="{% static 'js/lightbox.min.js' %} "></script>
+  <script src="{% static 'js/main.js' %} "></script>
+  <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+  <!-- carousel slider -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</body>
+
+</html>

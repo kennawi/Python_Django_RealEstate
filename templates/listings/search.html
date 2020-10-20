@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+{% block title %} | Search Results {% endblock %}
+{% block content %}
+
+
+<section id="showcase-inner" class="showcase-search text-white py-5">
+    <div class="container">
+    <form action="{% url 'search' %}">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+
+              {{ filter.form.category|as_crispy_field }}
+            </div>
+            <div class="col-md-4 mb-3">
+
+              {{ filter.form.city|as_crispy_field }}
+            </div>
+            <div class="col-md-4 mb-3">
+               {{ filter.form.title|as_crispy_field }}
+
+            </div>
+
+                <button class="btn btn-secondary btn-block mt-4" type="submit">{% trans "Search" %}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i>{% trans "Home" %}</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'listings' %}">{% trans "Browse Listings" %}</a>
+          </li>
+          <li class="breadcrumb-item active">{% trans "Search Results" %} </li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Listings -->
+  <section id="listings" class="py-4">
+    <div class="container">
+      <div class="row">
+        {% if filter.qs %}
+          {% for listing in filter.qs %}
+          <div class="col-md-6 col-lg-4 mb-4">
+              <div id='card-wrapper1' class="card-wrapper card listing-preview">
+                <img id='img-wrapper' class="card-img-wrapper card-img-top" src="{{ listing.photo_main.url }}" alt="">
+                <div class="card-img-overlay">
+                  <h2>
+                    <span class="badge badge-secondary text-white">AED {{ listing.price | intcomma }}</span>
+                  </h2>
+                </div>
+                <div id='card-body' class="card-body">
+                  <div id='listing-heading' class="listing-heading card-title text-center">
+                    <h4 id='card-title' class="card-title text-primary">{{ listing.title }}</h4>
+                    <p>
+                      <i class="fas fa-map-marker text-secondary"></i> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</p>
+                  </div>
+                  <hr>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-th-large"></i>{% trans "Sqft:" %} {{ listing.sqft }}</div>
+                    <div class="col-6">
+                      <i class="fas fa-car"></i>{% trans "Garage:" %} {{ listing.garage }}</div>
+                  </div>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-bed"></i>{% trans "Bedrooms:" %}  {{ listing.bedrooms }}</div>
+                    <div class="col-6">
+                      <i class="fas fa-bath"></i>{% trans "Bathrooms:" %} {{ listing.bathrooms }}</div>
+                  </div>
+                  <hr>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-12">
+                      <i class="fas fa-user"></i> {{ listing.realtor }}</div>
+                  </div>
+                  <div class="row text-secondary pb-2">
+                    <div class="col-6">
+                      <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
+                  </div>
+                  <hr>
+                  <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">{% trans "More Info" %}</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <p>{% trans "No Listings Available" %}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  {% endblock %}

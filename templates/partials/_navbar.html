@@ -1,0 +1,116 @@
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+<!-- Navbar -->
+<nav id="navbar" class="navbar global2 navbar-expand-lg navbar-dark bg-primary  sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'img/logo.png' %}" class="logo" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li
+            {% if '/' == request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+          >
+            <a class="nav-link" href="{% url 'index' %}">{% trans "Home" %} </a>
+          </li>
+          <li
+            {% if 'about' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+          >
+            <a class="nav-link" href="{% url 'about' %}">{% trans "About" %}</a>
+          </li>
+          <li
+            {% if 'listings' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+          >
+            <a class="nav-link" href="{% url 'listings' %}">{% trans "Featured Listings" %}</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+            <li
+            {% if 'dashboard' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'dashboard' %}">
+               {% trans "Welcome" %} {{ user.username }} (Dashboard)</a>
+            </li>
+            <li class="nav-item mr-3">
+              <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+                <i class="fas fa-sign-out-alt"></i> {% trans "Logout" %}
+              </a>
+              <form action="{% url 'logout' %}" method="POST" id="logout">
+                {% csrf_token %}
+                <input type="hidden">
+              </form>
+            </li>
+          {% else %}
+            <li
+            {% if 'register' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'register' %}">
+                <i class="fas fa-user-plus"></i>{% trans " Register" %}</a>
+            </li>
+            <li
+            {% if 'login' in request.path %}
+              class="nav-item active mr-3"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+            >
+              <a class="nav-link" href="{% url 'login' %}">
+                <i class="fas fa-sign-in-alt"></i>
+
+                {% trans "Login" %}</a>
+            </li>
+          {% endif %}
+          <li>
+            <form action="{% url 'set_language' %}" method="post">
+              {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select onchange="this.form.submit()" class="btn btn-secondary "
+                    name="language"> {% get_current_language as LANGUAGE_CODE %} {% get_available_languages as LANGUAGES %} {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                selected{% endif %}> {{ language.name_local }} ({{ language.code }})
+                        </option>
+                    {% endfor %}
+                </select>
+                      <!-- <input class="btn btn-secondary " type="submit" value="Go"/> -->
+              </form>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- <script>
+   $(window).scroll (function(){
+   $('nav').toggleClass('scrolle', $(this).scrollTop() > 380);
+   });
+  </script> -->

@@ -1,0 +1,37 @@
+// Import helpers from directional.scss
+@import "directional";
+
+// Use the helpers enable creating CSS bundles for LTR and RTL
+body {
+    text-align: $left;
+}
+
+p {
+    padding-#{$right}: 1em;
+    margin: side-values(0 2em 0 1em) if-ltr(!important);
+    background-image: url(sprite#{if-rtl('-rtl')}.png);
+
+    &:before {
+        content: if-ltr('<', '>');
+    }
+
+    &:after {
+        content: if-rtl('>', '<');
+    }
+
+    @include if-ltr {
+        strong {
+            padding-left: 0.5em;
+        }
+    }
+
+    @include if-rtl {
+        em {
+            margin-right: 0.5em;
+        }
+    }
+}
+
+.icon.icon-star {
+    background-image: url(sprite-#{$dir}.png);
+}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %} |Landing page {% endblock %}
+
+
+{% block content %}
+
+<section id="register" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div >
+            <div class="card-header bg-primary text-white">
+              <h4>
+                <i class="fas fa-user-plus"></i> Contact Form</h4>
+            </div>
+            <div id="card-body-register" class="card-body">
+              <!-- Alerts -->
+              <form action="{% url 'contactform' %}" method="POST">
+                {% csrf_token %}
+
+
+                <div class="form-group">
+                  <label for="name" class="col-form-label">{% trans 'Name: ' %}</label>
+                  <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="col-form-label">{% trans 'Email: ' %}</label>
+                  <input type="email" name="email" class="form-control" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
+                </div>
+                <div class="form-group">
+                  <label for="phone" class="col-form-label">{% trans 'Phone:' %}</label>
+                  <input type="text" name="phone" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="message" class="col-form-label">{% trans 'Message: ' %}</label>
+                  <textarea name="message" class="form-control"></textarea>
+                </div>
+                <hr>
+                <input type="submit" value="Send" class="btn btn-block btn-secondary">
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}

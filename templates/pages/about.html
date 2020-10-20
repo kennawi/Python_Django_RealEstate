@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %} | About Us {% endblock %}
+
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">{% trans "About properties" %}</h1>
+          
+          <!-- <p class="lead">{% trans "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!" %}</p> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i>{% trans " Home "%} </a>
+          </li>
+          <li class="breadcrumb-item active">{% trans "About"%} </li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 description">
+          <h2>{% trans " We Search For The Perfect Home" %}</h2>
+          <!-- <p class="lead">{% trans " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!" %}</p> -->
+          <img src="{% static 'img/about.jpg' %}" alt="">
+          <p class="mt-4 ">{% trans 'Elegance Real Estate Company L.L.C was established in 2019 in the Emirate of Ajman. Elegance is an Emirati company that specializes in real estate brokerage inside and outside the UAE since its inception and has achieved great success in the local and global real estate markets, we are moving steadily towards our first and primary goal which is to build strong relationships based on trust and respect with our current and future clients. Our company is made up of a dedicated and harmonious team with high capabilities to deal with all changes and emerging issues in the real estate market, a team that does not hesitate to arrive day and night to meet the needs of the client. If you are looking for a real estate for housing or investment, you only need to contact Elegance Real Estate, we are always ready to meet all your real estate desires with clarity and transparency. ' %}</p>
+        </div>
+        <div class="col-md-4">
+          {% if mvp_realtors %}
+            {% for realtor in mvp_realtors %}
+<!-- ------------------------------------------------------------------------------>
+
+<div id='card-wrapper1' class="card-wrapper card listing-preview">
+  <img id='img-wrapper' class="card-img-wrapper card-img-top" src="{{ realtor.photo.url }}" alt="">
+  <div class="card-img-overlay">
+    <!-- <h2>
+      <span class="badge badge-secondary text-white"></span>
+    </h2> -->
+  </div>
+
+  <div id='card-body' class="card-body">
+    <div id='listing-heading' class="listing-heading card-title text-center">
+      <h4 id='card-title' class="text-primary card-title">{{ realtor.name }}</h4>
+      <p>
+        <i class="fas fa-medal text-secondary">{% trans " Seller Of The Month "%}</i></p>
+    </div>
+    <hr>
+    <div class="row py-2 text-secondary ">
+      <div class="col-12">
+        <h4>{{ realtor.name }}</h4>
+        <p class="text-success">
+          <i class="fas fa-award text-success mb-3"></i> {% trans "Developer "%}</p>
+        <hr>
+        <p>
+          <i class="fas fa-phone"></i> {{ realtor.phone }}</p>
+        <p>
+          <i class="fas fa-envelope-open"></i> {{ realtor.email }}</p>
+      </div>
+
+
+
+<!-- ----------------------------------------------------------------------------------->
+            <!-- <div id="card-developer" class="card">
+                <img class="card-img-top" src="{{ realtor.photo.url }}" alt="Seller of the month">
+                <div class="card-body">
+                  <h5 class="card-title">Seller Of The Month</h5>
+                  <h6 class="text-secondary">{{ realtor.name }}</h6>
+                  <p class="card-text">{{ realtor.description }}
+                  </p>
+                </div>
+              </div> -->
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">{% trans " We Work For You "%}</h2>
+    <!-- <h4>{% trans "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!"%}</h4> -->
+    <hr>
+    <a href="{% url 'listings' %}" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-5">
+    <div class="container">
+      <h2 class="text-center">{% trans " Our Developers"%}</h2>
+      <div class="row text-center">
+        {% if realtors %}
+          {% for realtor in realtors %}
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div id='card-wrapper1' class="card-wrapper card listing-preview" style="width:300px;">
+            <img id="card-img-wrapper img-wrapper" class="card-img-wrapper card-img-top" src="{{ realtor.photo.url }}" alt="">
+            <div class="card-img-overlay">
+              <!-- <h2>
+                <span class="badge badge-secondary text-white"></span>
+              </h2> -->
+            </div>
+
+            <div id='card-body' class="card-body">
+              <div id='listing-heading' class="listing-heading card-title text-center">
+                <h4 id='card-title' class="text-primary card-title">{{ realtor.name }}</h4>
+                <p>
+                  <!-- <i class="fas fa-medal text-secondary">{% trans "Seller Of The Month" %}</i></p> -->
+              </div>
+              <hr>
+              <div class="row py-2 text-secondary ">
+                <div class="col-12">
+                  <h4>{{ realtor.name }}</h4>
+                  <p class="text-success">
+                    <i class="fas fa-award text-success mb-3"></i> {% trans "Realtor" %}</p>
+                  <hr>
+                  <p>
+                    <i class="fas fa-phone"></i> {{ realtor.phone }}</p>
+                  <p>
+                    <i class="fas fa-envelope-open"></i> {{ realtor.email }}</p>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <p>{% trans "No Realtors Available" %}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+
+  </section>
+
+
+
+{% endblock %}

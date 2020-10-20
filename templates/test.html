@@ -1,0 +1,127 @@
+
+<!-- ----------------Subscrip--------------------------------------------------------- -->
+<section class="subscribe-mail">
+
+<!-- ____________________________ -->
+
+<!-- ____________________________ -->
+
+<style type="text/css">
+  #mc_embed_signup{background:##fff0; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+  /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+     We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://marketerak.us8.list-manage.com/subscribe/post?u=90fbe3cd4c90b0fe0af968259&amp;id=f59e28c4d5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+  <label for="mce-EMAIL">{% trans "Subscribe" %}</label>
+  <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="{% trans 'email address' %}" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: fixed; left: -5000px;" aria-hidden="true"><input type="text" name="b_90fbe3cd4c90b0fe0af968259_f59e28c4d5" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+<!--End mc_embed_signup-->
+</section>
+
+<!-- ------------------------Crousel Slider-------------------------------------- -->
+<section id="owl-section">
+<div class="owl-carousel owl-theme">
+  {% for realtor in realtors %}
+  <div class="item"><img src="{{ realtor.photo.url }}" class="owl-thumbnail" alt="" ></div>
+  {% endfor %}
+</div>
+
+</section>
+
+<!-- ---------------------Footer------------------------------------------------------ -->
+
+<footer class="footer-section">
+      <div class="container">
+          <div class="footer-cta pt-5 pb-5">
+              <div class="row">
+                  <div class="col-xl-4 col-md-4 mb-30">
+                      <div class="single-cta">
+                          <i class="fas fa-map-marker-alt"></i>
+                          <div class="cta-text">
+                              <h4>{% trans "Find us" %}</h4>
+                              <span>{% trans "1010 Avenue, sw 54321, chandigarh" %}</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xl-4 col-md-4 mb-30">
+                      <div class="single-cta">
+                          <i class="fas fa-phone"></i>
+                          <div class="cta-text">
+                              <h4>{% trans "Call us" %}</h4>
+                              <span>98765432100</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xl-4 col-md-4 mb-30">
+                      <div class="single-cta">
+                          <i class="far fa-envelope-open"></i>
+                          <div class="cta-text">
+                              <h4>{% trans "Mail us" %}</h4>
+                              <span>info@elegancevip.net</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="footer-content pt-5 pb-5">
+              <div class="row">
+                  <div class="col-xl-4 col-lg-4 mb-50">
+                      <div class="footer-widget">
+                          <div class="footer-logo">
+                              <a href="index.html"><img src="{% static 'img/logo.png' %}" class="img-fluid" alt="logo"></a>
+                          </div>
+                          <div class="footer-text">
+                              <p>{% trans "Elegance Real Estate Company L.L.C was established in 2019 in the Emirate of Ajman. Elegance is an Emirati company that specializes in real estate " %} <a class="info" style="color: #fbaa00;" href="{% url 'about' %}">More Info</a> </p>
+                          </div>
+
+                      </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                      <div class="footer-widget">
+                          <div class="footer-widget-heading">
+                              <h3><span>{% trans "Follow us" %}</span></h3>
+                          </div>
+                          <div class="footer-social-icon">
+
+                              <a href="https://www.facebook.com/105833950949243?referrer=whatsapp"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                              <a href="https://twitter.com/EleganceEstate?s=08"><i class="fab fa-twitter twitter-bg"></i></a>
+
+                          </div>
+                              <!-- <li><a href="#">About us</a></li>
+                              <li><a href="#">Our Services</a></li>
+                              <li><a href="#">Expert Team</a></li>
+                              <li><a href="#">Contact us</a></li>
+                              <li><a href="#">Latest News</a></li> -->
+
+                      </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                      <div class="footer-widget">
+                          <div class="footer-widget-heading">
+                              <h3>{% trans "Subscribe" %}</h3>
+                          </div>
+                          <div class="footer-text mb-25">
+                              <p>{% trans "Don’t miss to subscribe to our new feeds, kindly fill the form below." %}</p>
+                          </div>
+                          <div class="subscribe-form">
+                              <form action="#">
+                                  <input type="text" placeholder="{% trans 'Email Address' %}">
+                                  <button><i class="fab fa-telegram-plane"></i></button>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </footer>

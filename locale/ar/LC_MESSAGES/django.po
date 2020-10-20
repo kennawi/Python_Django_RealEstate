@@ -1,0 +1,423 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-18 02:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\listings\filters.py:11
+msgid "Keywards"
+msgstr "البحث"
+
+#: .\listings\filters.py:12
+msgid "City"
+msgstr "المدينة"
+
+#: .\listings\filters.py:13
+msgid "Category"
+msgstr "الفئة"
+
+#: .\listings\models.py:10
+msgid "Apartments"
+msgstr "شقه"
+
+#: .\listings\models.py:11
+msgid "Villas"
+msgstr "فيلا"
+
+#: .\listings\models.py:12
+msgid "Land"
+msgstr "ارض"
+
+#: .\listings\models.py:13
+msgid "Commercial"
+msgstr "تجاري"
+
+#: .\listings\models.py:17
+msgid "Abu Dhabi"
+msgstr "أبوظبى"
+
+#: .\listings\models.py:18
+msgid "Dubai"
+msgstr "دبى"
+
+#: .\listings\models.py:19
+msgid "Sharjah"
+msgstr "الشارقة"
+
+#: .\listings\models.py:20
+msgid "Ajman"
+msgstr "عجمان"
+
+#: .\listings\models.py:21
+msgid "Umm Al Qaiwain"
+msgstr "أم القيوين"
+
+#: .\listings\models.py:22
+msgid "Ras Al Khaimah"
+msgstr "ورأس الخيمة"
+
+#: .\listings\models.py:23
+msgid "Fujairah"
+msgstr "الفجيرة"
+
+#: .\listings\models.py:24
+msgid "Other"
+msgstr "اخرى"
+
+#: .\realestate\urls.py:22
+msgid "admin/"
+msgstr ""
+
+#: .\templates\base.html:143 .\templates\listings\listing.html:170
+#: .\templates\listings\listing.html:187
+msgid "Make An Inquiry"
+msgstr "استعلم"
+
+#: .\templates\base.html:154 .\templates\listings\listing.html:207
+#: .\templates\pages\landingpage.html:26
+msgid "Name: "
+msgstr "الاسم"
+
+#: .\templates\base.html:158 .\templates\listings\listing.html:211
+#: .\templates\pages\landingpage.html:30
+msgid "Email: "
+msgstr "الايميل"
+
+#: .\templates\base.html:162 .\templates\listings\listing.html:215
+#: .\templates\pages\landingpage.html:34
+msgid "Phone:"
+msgstr "الهاتف"
+
+#: .\templates\base.html:166 .\templates\listings\listing.html:219
+#: .\templates\pages\landingpage.html:38
+msgid "Message: "
+msgstr "الرسالة"
+
+#: .\templates\listings\listing.html:27 .\templates\listings\listings.html:26
+#: .\templates\listings\search.html:42 .\templates\pages\index.html:59
+#: .\templates\partials\_navbar.html:24 .\templates\partials\_navbar2.html:25
+#: .\templates\partials\_navbar_rtl.html:22
+msgid "Home"
+msgstr "الرئيسية"
+
+#: .\templates\listings\listing.html:30
+msgid "Listings"
+msgstr "القائمة"
+
+#: .\templates\listings\listing.html:44
+msgid "Back To Listings"
+msgstr "الرجوع الى القائمة"
+
+#: .\templates\listings\listing.html:124
+msgid "Asking Price: "
+msgstr "الاستفسار عن السعر"
+
+#: .\templates\listings\listing.html:128
+msgid "Bedrooms: "
+msgstr "عدد الغرف :"
+
+#: .\templates\listings\listing.html:132 .\templates\pages\index.html:245
+msgid "Bathrooms: "
+msgstr "دوره الماية: "
+
+#: .\templates\listings\listing.html:136
+msgid "Garage: "
+msgstr "الجراج: "
+
+#: .\templates\listings\listing.html:145
+msgid "Square Feet: "
+msgstr "متر مربع :"
+
+#: .\templates\listings\listing.html:149
+msgid "Lot Size: "
+msgstr "المساحه الكليه"
+
+#: .\templates\listings\listing.html:154
+msgid "Listing Date: "
+msgstr "تاريخ النشر"
+
+#: .\templates\listings\listing.html:158
+msgid "Developer: "
+msgstr "المطور"
+
+#: .\templates\listings\listing.html:203
+msgid "Property: "
+msgstr "العقارات"
+
+#: .\templates\listings\listings.html:12
+msgid " Browse Our Properties"
+msgstr "ابحث عن عقارك"
+
+#: .\templates\listings\listings.html:28 .\templates\listings\search.html:45
+msgid "Browse Listings"
+msgstr "قائمة المشاريع"
+
+#: .\templates\listings\listings.html:57 .\templates\listings\search.html:76
+msgid "Sqft:"
+msgstr "قدم مربع :"
+
+#: .\templates\listings\listings.html:59 .\templates\listings\search.html:78
+msgid "Garage:"
+msgstr "الجراج :"
+
+#: .\templates\listings\listings.html:63 .\templates\listings\search.html:82
+msgid "Bedrooms:"
+msgstr "عدد الغرف :"
+
+#: .\templates\listings\listings.html:65 .\templates\listings\search.html:84
+msgid "Bathrooms:"
+msgstr "دوره المياه :"
+
+#: .\templates\listings\search.html:28 .\templates\pages\index.html:200
+msgid "Search"
+msgstr "البحث"
+
+#: .\templates\listings\search.html:47
+msgid "Search Results"
+msgstr "نتيجه البحث"
+
+#: .\templates\listings\search.html:96 .\templates\pages\index.html:257
+msgid "More Info"
+msgstr "معلومات اكثر"
+
+#: .\templates\listings\search.html:103 .\templates\pages\index.html:264
+msgid "No Listings Available"
+msgstr "لاتوجد قائمه متاحه "
+
+#: .\templates\pages\about.html:12
+#, fuzzy
+#| msgid " Browse Our Properties"
+msgid "About properties"
+msgstr "عن العقارات"
+
+#: .\templates\pages\about.html:14
+msgid ""
+"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!"
+msgstr ""
+
+#: .\templates\pages\about.html:27
+msgid " Home "
+msgstr " الرئيسية "
+
+#: .\templates\pages\about.html:29 .\templates\pages\index.html:68
+#: .\templates\partials\_navbar.html:33 .\templates\partials\_navbar2.html:34
+#: .\templates\partials\_navbar_rtl.html:31
+msgid "About"
+msgstr "ماذا عنا "
+
+#: .\templates\pages\about.html:39
+msgid " We Search For The Perfect Home"
+msgstr "نبحث عن الافضل لك "
+
+#: .\templates\pages\about.html:40
+msgid ""
+" Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!"
+msgstr ""
+
+#: .\templates\pages\about.html:42
+msgid ""
+"Elegance Real Estate Company L.L.C was established in 2019 in the Emirate of "
+"Ajman. Elegance is an Emirati company that specializes in real estate "
+"brokerage inside and outside the UAE since its inception and has achieved "
+"great success in the local and global real estate markets, we are moving "
+"steadily towards our first and primary goal which is to build strong "
+"relationships based on trust and respect with our current and future "
+"clients. Our company is made up of a dedicated and harmonious team with high "
+"capabilities to deal with all changes and emerging issues in the real estate "
+"market, a team that does not hesitate to arrive day and night to meet the "
+"needs of the client. If you are looking for a real estate for housing or "
+"investment, you only need to contact Elegance Real Estate, we are always "
+"ready to meet all your real estate desires with clarity and transparency. "
+msgstr ""
+"تأسست شركة اليجانس للعقارات ذ.م.م في عام 2019م في إمارة عجمان اليجانس هي "
+"شركة إماراتية  متخصصة في مجال الوساطة العقارية داخل دولة الامارات وخارجها "
+"فمنذ نشأتها وهي تحقق نجاحا باهرا في أسواق  العقارات المحلية و العالمية، فنحن "
+"نسير بخطى ثابتة نحو هدفنا الأول والأساسي الذي يتمثل  ببناء علاقات متينة "
+"قائمة على الثقة والاحترام مع عملائنا الحالين والمستقبلين .إن شركتنا مكونة من "
+"فريق عمل متخصص ومتناغم ذو قدرات عالية على التعاملمع كافة التغيرات والقضايا "
+"المستجدة في السوق العقاري ،فريق لا يتوانى عنوصل الليل بالنهار لتلبية "
+"احتياجات العميل .إن كنت تبحث عن عقار للسكن أو الاستثمار ، فما عليك  إلا "
+"الاتصال بشركة اليجانس للعقارات ،فنحن على استعداد دائم لتلبية كافة رغباتكم "
+"العقارية بكل وضوح وشفافية ."
+
+#: .\templates\pages\about.html:61
+msgid " Seller Of The Month "
+msgstr "بائع الشهر"
+
+#: .\templates\pages\about.html:68
+msgid "Developer "
+msgstr "المطور"
+
+#: .\templates\pages\about.html:97
+msgid " We Work For You "
+msgstr "نعمل من اجلك"
+
+#: .\templates\pages\about.html:98
+msgid ""
+"Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit "
+"aperiam, unde aliquid at similique!"
+msgstr ""
+
+#: .\templates\pages\about.html:106
+msgid " Our Developers"
+msgstr "المطورين"
+
+#: .\templates\pages\about.html:124
+msgid "Seller Of The Month"
+msgstr "بائع الشهر"
+
+#: .\templates\pages\about.html:131
+msgid "Realtor"
+msgstr "المطور"
+
+#: .\templates\pages\about.html:145
+msgid "No Realtors Available"
+msgstr "لايوجد مطورين متاحين"
+
+#: .\templates\pages\contact_form.html:14
+msgid ""
+"Hello. thank you  contacting with Elegance Real Estate L.L.C. you will be "
+"answered soon."
+msgstr ""
+"مرحبا . نشكركم على تواصلكم مع شركة اليجانس للعقارات . سوف يتم الرد عليكم "
+"قريبا "
+
+#: .\templates\pages\contact_form.html:16
+msgid "Back to Home Page"
+msgstr "العودة إلى الصفحة الرئيسية"
+
+#: .\templates\pages\index.html:77
+msgid "All Projects"
+msgstr "كل المشاريع"
+
+#: .\templates\pages\index.html:91 .\templates\partials\_navbar.html:56
+#: .\templates\partials\_navbar2.html:57
+#: .\templates\partials\_navbar_rtl.html:54
+msgid "Welcome"
+msgstr "مرحبا"
+
+#: .\templates\pages\index.html:95 .\templates\partials\_navbar.html:60
+#: .\templates\partials\_navbar2.html:61
+#: .\templates\partials\_navbar_rtl.html:58
+msgid "Logout"
+msgstr "تسجيل خروج"
+
+#: .\templates\pages\index.html:111 .\templates\partials\_navbar.html:76
+#: .\templates\partials\_navbar2.html:77
+#: .\templates\partials\_navbar_rtl.html:74
+msgid " Register"
+msgstr "التسجيل"
+
+#: .\templates\pages\index.html:123 .\templates\partials\_navbar.html:88
+#: .\templates\partials\_navbar2.html:89
+#: .\templates\partials\_navbar_rtl.html:86
+msgid "Login"
+msgstr "تسجيل دخول "
+
+#: .\templates\pages\index.html:182
+msgid "Property Searching Just Got So Easy"
+msgstr "ابحث عن العقار المناسب لك"
+
+#: .\templates\pages\index.html:214
+msgid "Latest Projects"
+msgstr "اخر المشاريع"
+
+#: .\templates\pages\index.html:237
+msgid " Sqft: "
+msgstr " مترمربع: "
+
+#: .\templates\pages\index.html:239
+msgid " Garage: "
+msgstr " الجراج: "
+
+#: .\templates\pages\index.html:243
+msgid " Bedrooms: "
+msgstr " عدد الغرف: "
+
+#: .\templates\pages\index.html:287 .\templates\pages\index.html:386
+#: .\templates\test.html:17 .\templates\test.html:110
+msgid "Subscribe"
+msgstr "اشترك"
+
+#: .\templates\pages\index.html:288 .\templates\test.html:18
+msgid "email address"
+msgstr "البريد الالكترونى"
+
+#: .\templates\pages\index.html:324 .\templates\test.html:50
+msgid "Find us"
+msgstr "ابحث عنا"
+
+#: .\templates\pages\index.html:325
+msgid "Al OwanAl Nakhil 2 - Ajman"
+msgstr "2 شارع الشيخ حميد بن راشد النعيمي"
+
+#: .\templates\pages\index.html:333 .\templates\test.html:59
+msgid "Call us"
+msgstr "اتصل بنا "
+
+#: .\templates\pages\index.html:342 .\templates\test.html:68
+msgid "Mail us"
+msgstr "ارسل لنا "
+
+#: .\templates\pages\index.html:357 .\templates\test.html:83
+msgid ""
+"Elegance Real Estate Company L.L.C was established in 2019 in the Emirate of "
+"Ajman. Elegance is an Emirati company that specializes in real estate "
+msgstr ""
+"تأسست شركة اليجانس للعقارات ذ.م.م في عام 2019م في إمارة عجمان .  اليجانس هي "
+"شركة إماراتية  متخصصة في مجال الوساطة العقارية "
+
+#: .\templates\pages\index.html:365 .\templates\test.html:91
+msgid "Follow us"
+msgstr "تواصل معنا "
+
+#: .\templates\pages\index.html:389 .\templates\test.html:113
+msgid "Don’t miss to subscribe to our new feeds, kindly fill the form below."
+msgstr "لاتفوت الاشتراك حتى يصلك كل جدد واخر الاخبار"
+
+#: .\templates\pages\index.html:393 .\templates\test.html:117
+msgid "Email Address"
+msgstr "عنوان البريد الالكترونى"
+
+#: .\templates\partials\_navbar.html:42 .\templates\partials\_navbar2.html:43
+#: .\templates\partials\_navbar_rtl.html:40
+msgid "Featured Listings"
+msgstr "قائمه المشاريع"
+
+#: .\templates\partials\floating-icons.html:12
+msgid "BOOK NOW"
+msgstr "احجز الان"
+
+#: .\templates\test.html:51
+msgid "1010 Avenue, sw 54321, chandigarh"
+msgstr "عجمان شارع الكورنيش برج العويس مكتب رقم 604"
+
+#~ msgid "About Real Estate"
+#~ msgstr "من نحن "
+
+#~ msgid "Property:"
+#~ msgstr "العقار: "
+
+#~ msgid "Name:"
+#~ msgstr "الاسم:"
+
+#~ msgid "Email:"
+#~ msgstr "الايميل:"
+
+#~ msgid "Message:"
+#~ msgstr "الرسالة"

@@ -1,0 +1,19 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+
+{% include 'partials/_alerts.html' %}
+<div class="container">
+  <div class="success" style=" text-align: center;
+  margin: auto;
+  padding: 99px;
+  text-align:center;">
+    <p >
+     {% trans "Hello. thank you  contacting with Elegance Real Estate L.L.C. you will be answered soon." %}
+    </p>
+     <h4><a href="{% url 'index' %}">{% trans "Back to Home Page" %}</a></h4>
+   </div>
+  </div>
+{% endblock %}

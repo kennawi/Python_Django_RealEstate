@@ -1,0 +1,412 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+{% block title %} | Welcome {% endblock %}
+
+{% block content %}
+
+<section id="top-bar2" class="p-3">
+  <div class="container">
+    <div class="row">
+      <div style="direction:ltr" class="col-md-4 ">
+        <i style="direction:ltr" class="fas fa-phone"></i><a style="color:white;" href="tel:+971 50 592 0222">+971 50 592 0222</a>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-envelope-open"></i> info@elegancevip.net
+      </div>
+      <div class="col-md-4">
+        <div class="social text-right">
+
+          <a href="https://www.facebook.com/EleganceRealState/">
+            <i class="fab fa-facebook"></i>
+          </a>
+
+          <a href="https://www.instagram.com/invites/contact/?i=1pon8j4ejl5up&utm_content=bhxcv33">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href=" https://twitter.com/EleganceEstate?s=08">
+            <i class="fab fa-twitter"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ---------------nave-------------- -->
+  <nav class="navbar navbar2 navbar-expand-lg navbar-dark bg-primary ">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img src="{% static 'img/logo.png' %}" class="logo" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <ul class="navbar-nav">
+            <li
+              {% if '/' == request.path %}
+                class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+            >
+              <a class="nav-link" href="{% url 'index' %}">{% trans "Home" %} </a>
+            </li>
+            <li
+              {% if 'about' in request.path %}
+                class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+            >
+              <a class="nav-link" href="{% url 'about' %}">{% trans "About" %}</a>
+            </li>
+            <li
+              {% if 'listings' in request.path %}
+                class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+            >
+              <a class="nav-link" href="{% url 'listings' %}">{% trans "All Projects" %}</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+              <li
+              {% if 'dashboard' in request.path %}
+                class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+              >
+                <a class="nav-link" href="{% url 'dashboard' %}">
+                 {% trans "Welcome" %} {{ user.username }} (Dashboard)</a>
+              </li>
+              <li class="nav-item mr-3">
+                <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+                  <i class="fas fa-sign-out-alt"></i> {% trans "Logout" %}
+                </a>
+                <form action="{% url 'logout' %}" method="POST" id="logout">
+                  {% csrf_token %}
+                  <input type="hidden">
+                </form>
+              </li>
+            {% else %}
+              <li
+              {% if 'register' in request.path %}
+                class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+              >
+                <a class="nav-link" href="{% url 'register' %}">
+                  <i class="fas fa-user-plus"></i>{% trans " Register" %}</a>
+              </li>
+              <li
+              {% if 'login' in request.path %}
+                class="nav-item active mr-3"
+              {% else %}
+                class="nav-item mr-3"
+              {% endif %}
+              >
+                <a class="nav-link" href="{% url 'login' %}">
+                  <i class="fas fa-sign-in-alt"></i>
+
+                  {% trans "Login" %}</a>
+              </li>
+            {% endif %}
+            <li>
+              <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+              <input name="next" type="hidden" value="{{ redirect_to }}" >
+                  <select onchange="this.form.submit()" class="btn btn-secondary " style="background:#040404a8; "
+                      name="language" > {% get_current_language as LANGUAGE_CODE %} {% get_available_languages as LANGUAGES %} {% get_language_info_list for LANGUAGES as languages %}
+                      {% for language in languages %}
+                          <option  value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                  selected{% endif %} > {{ language.name_local }} ({{ language.code }})
+                          </option>
+                      {% endfor %}
+                  </select>
+                        <!-- <input class="btn btn-secondary " style="background:#040404a8; " type="submit" value="Go"/> -->
+                </form>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+<!-- Showcase -->
+<section  class="showcase" id="showcase">
+  <!-- mobile only  -->
+  <div class="container mobileShow">
+
+      <div style="direction:ltr" class="col-md-4 ">
+        <i style="direction:ltr" class="fas fa-phone"></i> <a style="color:white;" href="tel:+971 50 592 0222">+971 50 592 0222</a>
+      </div>
+      <div style="direction:ltr" class="col-md-4">
+        <i style="direction:ltr" class="fas fa-envelope-open"></i> info@elegancevip.net
+      </div>
+      <div class="col-md-4">
+        <div class="social text-right">
+
+          <a href="https://www.facebook.com/EleganceRealState/">
+            <i class="fab fa-facebook"></i>
+          </a>
+
+          <a href="https://www.instagram.com/invites/contact/?i=1pon8j4ejl5up&utm_content=bhxcv33">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href=" https://twitter.com/EleganceEstate?s=08">
+            <i class="fab fa-twitter"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  <!-- end mobil -->
+    <div class="container text-center">
+      <div class="home-search p-5">
+        <div class="overlay p-5">
+          <h1 class="display-4 mb-4">
+               {% trans 'Property Searching Just Got So Easy' %}
+          </h1>
+          <div class="search">
+            <form action="{% url 'search' %}">
+              <!-- Form Row 1 -->
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+
+                  {{ filter.form.category|as_crispy_field }}
+                </div>
+                <div class="col-md-4 mb-3">
+
+                  {{ filter.form.city|as_crispy_field }}
+                </div>
+                <div class="col-md-4 mb-3">
+                   {{ filter.form.title|as_crispy_field }}
+
+                </div>
+              <button class="btn btn-secondary btn-block mt-4" type="submit">{% trans "Search" %}</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<br>
+  <!-- Alerts -->
+  {% include 'partials/_alerts.html' %}
+
+  <!-- Listings -->
+  <section id="listings" class="py-5">
+    <div class="container">
+      <h3 class="text-center mb-3">{% trans "Latest Projects" %}</h3>
+      <div class="row">
+        {% if listings %}
+          {% for listing in listings %}
+            <!-- Listing 1 -->
+            <div class="col-md-6 col-lg-4 mb-4">
+              <div id='card-wrapper1' class="card-wrapper card listing-preview">
+                <img id='img-wrapper' class="card-img-wrapper card-img-top" src="{{ listing.photo_main.url }}" alt="">
+                <div class="card-img-overlay">
+                  <h2>
+                    <span class="badge badge-secondary text-white">AED {{ listing.price | intcomma }}</span>
+                  </h2>
+                </div>
+
+                <div id='card-body' class="card-body">
+                  <div id='listing-heading' class="listing-heading card-title text-center">
+                    <h4 id='card-title' class="text-primary card-title">{{ listing.title }}</h4>
+                    <p>
+                      <i class="fas fa-map-marker text-secondary"> {{ listing.city }} {{ listing.state }}, {{ listing.zipcode }}</i></p>
+                  </div>
+                  <hr>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-th-large"></i>{% trans " Sqft: "%} {{ listing.sqft }}</div>
+                    <div class="col-6">
+                      <i class="fas fa-car"></i>{% trans " Garage: "%} {{ listing.garage }}</div>
+                  </div>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-bed"></i>{% trans " Bedrooms: " %} {{ listing.bedrooms }}</div>
+                    <div class="col-6">
+                      <i class="fas fa-bath"></i> {% trans "Bathrooms: " %} {{ listing.bathrooms }}</div>
+                  </div>
+                  <hr>
+                  <div class="row py-2 text-secondary">
+                    <div class="col-6">
+                      <i class="fas fa-user"></i> {{ listing.realtor }}</div>
+                  </div>
+                  <div class="row text-secondary pb-2">
+                    <div class="col-6">
+                      <i class="fas fa-clock"></i> {{ listing.list_date | timesince }}</div>
+                  </div>
+                  <hr>
+                  <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">{% trans "More Info" %}</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="col-md-12">
+            <p>{% trans "No Listings Available" %}</p>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </section>
+<!-- ----------------Subscrip--------------------------------------------------------- -->
+<section class="subscribe-mail">
+
+  <!-- ____________________________ -->
+
+  <!-- ____________________________ -->
+  <div class="container">
+    <div class="row">
+      <style type="text/css">
+      	#mc_embed_signup{background:#fff0; clear:left; font:14px ; width:90%; margin:auto;}
+      	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+      	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+      </style>
+      <div id="mc_embed_signup">
+      <form action="https://marketerak.us8.list-manage.com/subscribe/post?u=90fbe3cd4c90b0fe0af968259&amp;id=f59e28c4d5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+      	<!-- <label for="mce-EMAIL">{% trans "Subscribe" %}</label> -->
+      	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="{% trans 'email address' %}" required style="text-align: center;">
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: fixed; left: -5000px;" aria-hidden="true"><input type="text" name="b_90fbe3cd4c90b0fe0af968259_f59e28c4d5" tabindex="-1" value=""></div>
+          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--End mc_embed_signup-->
+<!--End mc_embed_signup-->
+</section>
+
+<!-- ------------------------Crousel Slider-------------------------------------- -->
+<section id="owl-section">
+  <div class="owl-carousel owl-theme">
+    {% for realtor in realtors %}
+    <div class="item"><img src="{{ realtor.photo.url }}" class="owl-thumbnail" alt="" ></div>
+    {% endfor %}
+</div>
+
+</section>
+
+<!-- ---------------------Footer------------------------------------------------------ -->
+
+<footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="cta-text">
+                                <h4>{% trans "Find us" %}</h4>
+                                <span>{% trans "Al OwanAl Nakhil 2 - Ajman" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-phone"></i>
+                            <div class="cta-text">
+                                <h4>{% trans "Call us" %}</h4>
+                                <span><li class="fas fa-phone" style="direction:ltr"><a style="direction:ltr; color:#757575;" href="tel:+971 50 592 0222">+971 50 592 0222</a></li></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="far fa-envelope-open"></i>
+                            <div class="cta-text">
+                                <h4>{% trans "Mail us" %}</h4>
+                                <span>info@elegancevip.net</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <a href="index.html"><img src="{% static 'img/logo.png' %}" class="img-fluid" alt="logo"></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>{% trans "Elegance Real Estate Company L.L.C was established in 2019 in the Emirate of Ajman. Elegance is an Emirati company that specializes in real estate " %} <a class="info" style="color: #fbaa00;" href="{% url 'about' %}">More Info</a> </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3><span>{% trans "Follow us" %}</span></h3>
+                            </div>
+                            <div class="footer-social-icon">
+
+                                <a href="https://www.facebook.com/105833950949243?referrer=whatsapp"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                <a href="https://twitter.com/EleganceEstate?s=08"><i class="fab fa-twitter twitter-bg"></i></a>
+                                <a href="https://www.instagram.com/invites/contact/?i=1pon8j4ejl5up&utm_content=bhxcv33"><i style="background: #5851DB;"  class="fab fa-instagram instagram-bg"></i></a>
+                                <a href="https://www.snapchat.com/add/elegance179/Lc7wT"><i style="background: #ffeb00;" class="fab fa-snapchat snapchat-bg"></i></a>
+
+                            </div>
+                                <!-- <li><a href="#">About us</a></li>
+                                <li><a href="#">Our Services</a></li>
+                                <li><a href="#">Expert Team</a></li>
+                                <li><a href="#">Contact us</a></li>
+                                <li><a href="#">Latest News</a></li> -->
+
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>{% trans "Subscribe" %}</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>{% trans "Don’t miss to subscribe to our new feeds, kindly fill the form below." %}</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" style="text-align: center;" placeholder="{% trans 'Email Address' %}">
+                                    <button><i class="fab fa-telegram-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+  <!-- ----------------------MaiLChip code Subscrip---------------------------- -->
+
+
+  <!--End mc_embed_signup-->
+{% endblock %}
